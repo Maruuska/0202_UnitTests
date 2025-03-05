@@ -14,7 +14,7 @@
 Параметры: taskId - номер задачи, которую нужно удалить.
 3. `public bool UpdateTask(Task oldTask, Task updTask)` - изменение информации о задаче (приоритет, статус и т;д;).
 Параметры: oldTask - задача, которую нудно обновить, updTask - значения для обновления задачи.
-4. public Task GetTaskById(int idTask) - получение информации о задаче по ID.
+4. `public Task GetTaskById(int idTask)` - получение информации о задаче по ID.
 Параметры: idTask - id задачи, которая будет возвращена.
 5. `public List<Task> GetAllTask()` - получение списка всех задач.
 6. `public bool СomparisonLists(List<Task> exp, List<Task> act)` - сравнение двух листов.
