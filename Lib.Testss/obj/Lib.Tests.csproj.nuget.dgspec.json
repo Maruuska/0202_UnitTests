@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Юзер\\Desktop\\Lib\\Lib.Testss\\Lib.Tests.csproj": {}
+    "D:\\Dunaeva 0202 utest\\1 prog\\0202\\Lib.Testss\\Lib.Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Юзер\\Desktop\\Lib\\Lib.Testss\\Lib.Tests.csproj": {
+    "D:\\Dunaeva 0202 utest\\1 prog\\0202\\Lib.Testss\\Lib.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Юзер\\Desktop\\Lib\\Lib.Testss\\Lib.Tests.csproj",
+        "projectUniqueName": "D:\\Dunaeva 0202 utest\\1 prog\\0202\\Lib.Testss\\Lib.Tests.csproj",
         "projectName": "Lib.Tests",
-        "projectPath": "C:\\Users\\Юзер\\Desktop\\Lib\\Lib.Testss\\Lib.Tests.csproj",
-        "packagesPath": "C:\\Users\\Юзер\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Юзер\\Desktop\\Lib\\Lib.Testss\\obj\\",
+        "projectPath": "D:\\Dunaeva 0202 utest\\1 prog\\0202\\Lib.Testss\\Lib.Tests.csproj",
+        "packagesPath": "C:\\Users\\ДунаеваМВ\\.nuget\\packages\\",
+        "outputPath": "D:\\Dunaeva 0202 utest\\1 prog\\0202\\Lib.Testss\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Юзер\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ДунаеваМВ\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,14 +26,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Юзер\\Desktop\\Lib\\Lib\\Lib.csproj": {
-                "projectPath": "C:\\Users\\Юзер\\Desktop\\Lib\\Lib\\Lib.csproj"
+              "D:\\Dunaeva 0202 utest\\1 prog\\0202\\Lib\\Lib.csproj": {
+                "projectPath": "D:\\Dunaeva 0202 utest\\1 prog\\0202\\Lib\\Lib.csproj"
               }
             }
           }
@@ -47,8 +48,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.100"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -79,24 +79,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Юзер\\Desktop\\Lib\\Lib\\Lib.csproj": {
+    "D:\\Dunaeva 0202 utest\\1 prog\\0202\\Lib\\Lib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Юзер\\Desktop\\Lib\\Lib\\Lib.csproj",
+        "projectUniqueName": "D:\\Dunaeva 0202 utest\\1 prog\\0202\\Lib\\Lib.csproj",
         "projectName": "Lib",
-        "projectPath": "C:\\Users\\Юзер\\Desktop\\Lib\\Lib\\Lib.csproj",
-        "packagesPath": "C:\\Users\\Юзер\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Юзер\\Desktop\\Lib\\Lib\\obj\\",
+        "projectPath": "D:\\Dunaeva 0202 utest\\1 prog\\0202\\Lib\\Lib.csproj",
+        "packagesPath": "C:\\Users\\ДунаеваМВ\\.nuget\\packages\\",
+        "outputPath": "D:\\Dunaeva 0202 utest\\1 prog\\0202\\Lib\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Юзер\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ДунаеваМВ\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -105,6 +105,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -122,8 +123,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.100"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -144,7 +144,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

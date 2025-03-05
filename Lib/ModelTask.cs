@@ -44,8 +44,8 @@ namespace Lib
     //класс, описывающий пользователя, создавшего задачу
     public class User
     {
-        int id;
-        string name;
+        public int id;
+        public string name;
 
         public User(int id, string name)  //конструктор
         {

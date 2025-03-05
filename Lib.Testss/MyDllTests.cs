@@ -46,24 +46,15 @@ namespace Lib.Tests
             // задача, которую обновим
             Task origTask = new Task(3, "полить цветы", new DateTime(2000, 04, 30), Priority.Medium, Status.Close, new User(1, "Den"));   //объект класса
             // ожидаемая задача
-            Task expectedTask = new Task(3, "полить кактус", new DateTime(2000, 04, 30), Priority.Low, Status.Progress, new User(1, "Den"));   //объект класса
-            Task expectedTask2 = new Task(3, "полить кактус", new DateTime(2000, 04, 30), Priority.Low, Status.Progress, new User(1, "Den"));
+            Task expectedTask = new Task(3, "полить кактусик", new DateTime(2000, 04, 30), Priority.Low, Status.Progress, new User(1, "Den"));   //объект класса
 
             // Act
-            Task actualTask = _dll.UpdateTask(origTask, origTask);
+            bool vozvrat = _dll.UpdateTask(origTask, expectedTask);
 
             // Assert
-            Assert.AreEqual(expectedTask, actualTask);
+            Assert.AreEqual(true, vozvrat);
         }
 
-        //[TestMethod]
-        //public void UpdateTask_UpdateOldTask()
-        //{
-        //    int r = 10;
-        //    int f = _dll.UpdateTask(r);
-        //    int t = 30;
-        //    Assert.AreEqual(t, f);
-        //}
 
         [TestMethod]
         public void GetTaskId_ReturnTask()
@@ -84,14 +75,118 @@ namespace Lib.Tests
         public void GetAllTasks_ReturnAllTask()
         {
             // Arrange
-            List<Task> list = new List<Task>();
+            //создание двух задач в листе
+            Task task = new Task(1, "нарисовать картинку", DateTime.Now, Priority.Low, Status.Progress, new User(3, "Jon"));   //объект класса
+            Task task2 = new Task(1, "купить чипсики", DateTime.Now, Priority.High, Status.Open, new User(3, "Jon"));   //объект класса
 
             // Act
-            Task actualTask = _dll.GetTaskById(4);  //получение задачи по ее id
+            _dll.CreateTask(task);
+            _dll.CreateTask(task2);
+            List<Task> list = _dll.GetAllTask();
 
             // Assert
-            //Assert.AreEqual(task4, actualTask);
+            Assert.AreEqual(2, list.Count);
         }
 
+        [TestMethod]
+        public void GetStatusTasks_ReturnStatusTasks()
+        {
+            // Arrange
+            //создание задач в листе с двумя статусами Open
+            Task task = new Task(1, "нарисовать картинку", DateTime.Now, Priority.Low, Status.Progress, new User(3, "Jon"));   //объект класса
+            Task task2 = new Task(2, "купить чипсики", DateTime.Now, Priority.Low, Status.Open, new User(2, "Nick"));   //объект класса
+            Task task3 = new Task(3, "съесть тыблочко", DateTime.Now, Priority.Low, Status.Open, new User(3, "Jon"));   //объект класса
+
+            // Act
+            _dll.CreateTask(task);
+            _dll.CreateTask(task2);
+            _dll.CreateTask(task3);
+            int countTasks = _dll.GetTaskStatus(Status.Open);
+
+            // Assert
+            Assert.AreEqual(2, countTasks);
+        }
+
+        [TestMethod]
+        public void GetPriorityTasks_ReturnPriorityTasks()
+        {
+            // Arrange
+            //создание задач в листе с тремя приоритетами High
+            Task task = new Task(1, "нарисовать картинку", DateTime.Now, Priority.High, Status.Progress, new User(3, "Jon"));   //объект класса
+            Task task2 = new Task(2, "купить чипсики", DateTime.Now, Priority.High, Status.Open, new User(2, "Nick"));   //объект класса
+            Task task3 = new Task(3, "съесть тыблочко", DateTime.Now, Priority.High, Status.Open, new User(3, "Jon"));   //объект класса
+
+            // Act
+            _dll.CreateTask(task);
+            _dll.CreateTask(task2);
+            _dll.CreateTask(task3);
+            int countTasks = _dll.GetTaskPriority(Priority.High);
+
+            // Assert
+            Assert.AreEqual(3, countTasks);
+        }
+
+        [TestMethod]
+        public void GetCountTasks_ReturnCountTasks()
+        {
+            // Arrange
+            //создание задач в листе с тремя приоритетами High
+            Task task = new Task(1, "нарисовать картинку", DateTime.Now, Priority.High, Status.Progress, new User(3, "Jon"));   //объект класса
+            Task task2 = new Task(2, "купить чипсики", DateTime.Now, Priority.High, Status.Open, new User(2, "Nick"));   //объект класса
+            Task task3 = new Task(3, "съесть тыблочко", DateTime.Now, Priority.High, Status.Open, new User(3, "Jon"));   //объект класса
+            Task task4 = new Task(3, "посмотреть киношку", DateTime.Now, Priority.High, Status.Progress, new User(3, "Jon"));   //объект класса
+
+            // Act
+            _dll.CreateTask(task);
+            _dll.CreateTask(task2);
+            _dll.CreateTask(task3);
+            _dll.CreateTask(task4);
+            int countTasks = _dll.GetTaskCount();
+
+            // Assert
+            Assert.AreEqual(4, countTasks);
+        }
+
+        [TestMethod]
+        public void GetUsersTasks_ReturnUsersTasks()
+        {
+            // Arrange
+            //создание задач в листе с тремя приоритетами High
+            Task task = new Task(1, "нарисовать картинку", DateTime.Now, Priority.High, Status.Progress, new User(3, "Jon"));   //объект класса
+            Task task2 = new Task(2, "купить чипсики", DateTime.Now, Priority.High, Status.Open, new User(2, "Nick"));   //объект класса
+            Task task3 = new Task(3, "съесть тыблочко", DateTime.Now, Priority.High, Status.Open, new User(3, "Jon"));   //объект класса
+            Task task4 = new Task(3, "посмотреть киношку", DateTime.Now, Priority.High, Status.Progress, new User(7, "Rick"));   //объект класса
+
+            // Act
+            _dll.CreateTask(task);
+            _dll.CreateTask(task2);
+            _dll.CreateTask(task3);
+            _dll.CreateTask(task4);
+            int countTasks = _dll.GetTaskUsers(3,"Jon");
+
+            // Assert
+            Assert.AreEqual(2, countTasks);
+        }
+
+        [TestMethod]
+        public void GetDateTasks_ReturnDateTasks()
+        {
+            // Arrange
+            //создание задач в листе с тремя приоритетами High
+            Task task = new Task(1, "нарисовать картинку", new DateTime(2025, 10, 08), Priority.High, Status.Progress, new User(3, "Jon"));   //объект класса
+            Task task2 = new Task(2, "купить чипсики", DateTime.Now, Priority.High, Status.Open, new User(2, "Nick"));   //объект класса
+            Task task3 = new Task(3, "съесть тыблочко", DateTime.Now, Priority.High, Status.Open, new User(3, "Jon"));   //объект класса
+            Task task4 = new Task(3, "посмотреть киношку", DateTime.Now, Priority.High, Status.Progress, new User(7, "Rick"));   //объект класса
+
+            // Act
+            _dll.CreateTask(task);
+            _dll.CreateTask(task2);
+            _dll.CreateTask(task3);
+            _dll.CreateTask(task4);
+            int countTasks = _dll.GetTaskDate(new DateTime(2025, 10, 08));
+
+            // Assert
+            Assert.AreEqual(1, countTasks);
+        }
     }
 }

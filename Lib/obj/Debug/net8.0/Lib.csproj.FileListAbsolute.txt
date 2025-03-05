@@ -20,3 +20,14 @@ C:\Users\Юзер\Desktop\Lib\Lib\obj\Debug\net8.0\Lib.dll
 C:\Users\Юзер\Desktop\Lib\Lib\obj\Debug\net8.0\refint\Lib.dll
 C:\Users\Юзер\Desktop\Lib\Lib\obj\Debug\net8.0\Lib.pdb
 C:\Users\Юзер\Desktop\Lib\Lib\obj\Debug\net8.0\ref\Lib.dll
+D:\Dunaeva 0202 utest\1 prog\0202\Lib\bin\Debug\net8.0\Lib.deps.json
+D:\Dunaeva 0202 utest\1 prog\0202\Lib\bin\Debug\net8.0\Lib.dll
+D:\Dunaeva 0202 utest\1 prog\0202\Lib\bin\Debug\net8.0\Lib.pdb
+D:\Dunaeva 0202 utest\1 prog\0202\Lib\obj\Debug\net8.0\Lib.GeneratedMSBuildEditorConfig.editorconfig
+D:\Dunaeva 0202 utest\1 prog\0202\Lib\obj\Debug\net8.0\Lib.AssemblyInfoInputs.cache
+D:\Dunaeva 0202 utest\1 prog\0202\Lib\obj\Debug\net8.0\Lib.AssemblyInfo.cs
+D:\Dunaeva 0202 utest\1 prog\0202\Lib\obj\Debug\net8.0\Lib.csproj.CoreCompileInputs.cache
+D:\Dunaeva 0202 utest\1 prog\0202\Lib\obj\Debug\net8.0\Lib.dll
+D:\Dunaeva 0202 utest\1 prog\0202\Lib\obj\Debug\net8.0\refint\Lib.dll
+D:\Dunaeva 0202 utest\1 prog\0202\Lib\obj\Debug\net8.0\Lib.pdb
+D:\Dunaeva 0202 utest\1 prog\0202\Lib\obj\Debug\net8.0\ref\Lib.dll

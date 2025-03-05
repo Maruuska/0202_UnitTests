@@ -10,11 +10,6 @@ namespace Lib
         private List<Task> _tasks = new List<Task>();
 
         //метод, создающий задачу
-        //public void CreateTask(Task newTask)
-        //{
-        //    _tasks.Add(newTask);
-        //}
-
         public Task CreateTask(Task newTask)
         {
             _tasks.Add(newTask);
@@ -32,21 +27,23 @@ namespace Lib
         }
 
         //метод, обновляющий задачу
-        public Task UpdateTask(Task oldTask, Task updTask)
+        public bool UpdateTask(Task oldTask, Task updTask)
         {
+            //обновление полей старой задачи новыми
             oldTask.id = updTask.id;
             oldTask.name = updTask.name;
             oldTask.creatDate = updTask.creatDate;
             oldTask.priority = updTask.priority;
             oldTask.status = updTask.status;
             oldTask.user = updTask.user;
-            return oldTask;
-        }
 
-        //public int UpdateTask(int u)
-        //{
-        //    return u + 20;
-        //}
+            //проверка равенства задач
+            if(oldTask.id == updTask.id && oldTask.name == updTask.name && oldTask.creatDate == updTask.creatDate && oldTask.priority == updTask.priority && oldTask.status == updTask.status && oldTask.user == updTask.user )
+            {
+                return true;
+            }                 
+            return false;
+        }
 
 
         //метод, возвращающий задачу по ее id
@@ -56,15 +53,71 @@ namespace Lib
         }
 
         //Получение списка всех задач
-        public List<Task> GetAllTask(int idTask)
+        public List<Task> GetAllTask()
         {
             return _tasks.ToList();
         }
 
+        //Получение задач по статусу
+        public int GetTaskStatus(Status status)
+        {
+            int count = 0;
+            foreach (Task task in _tasks)
+            {
+                if(task.status == status)
+                {
+                    count++;
+                }
+            }
+            return count;
+        }
 
+        //Получение задач по приоритету
+        public int GetTaskPriority(Priority priority)
+        {
+            int count = 0;
+            foreach (Task task in _tasks)
+            {
+                if (task.priority == priority)
+                {
+                    count++;
+                }
+            }
+            return count;
+        }
+
+        //Получение количества задач
+        public int GetTaskCount()
+        {
+            return _tasks.Count;
+        }
+
+        //Получение задач по пользователю
+        public int GetTaskUsers(int idUser, string nameUser)
+        {
+            int count = 0;
+            foreach (Task task in _tasks)
+            {
+                if (task.user.id == idUser && task.user.name == nameUser)
+                {
+                    count++;
+                }
+            }
+            return count;
+        }
+
+        //Получение задач по дате создания
+        public int GetTaskDate(DateTime date)
+        {
+            int count = 0;
+            foreach (Task task in _tasks)
+            {
+                if (task.creatDate == date)
+                {
+                    count++;
+                }
+            }
+            return count;
+        }
     }
-
-
-
-
 }
