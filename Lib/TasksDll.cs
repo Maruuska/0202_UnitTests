@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Lib
 {
     //класс Dll, содержит методы работы с задачами
-    public class Dll
+    public class TasksDll
     {
         //создание листа для задач
         private List<Task> _tasks = new List<Task>();
@@ -13,13 +14,13 @@ namespace Lib
         public Task CreateTask(Task newTask)
         {
             _tasks.Add(newTask);
-            return _tasks.FirstOrDefault(it => it.id == newTask.id);
+            return _tasks.First(it => it.id == newTask.id);
         }
 
         //метод, удаляющий задачу по ее id
         public bool DeleteTask(int taskId)
         {
-            Task taskDelete = _tasks.FirstOrDefault(it => it.id == taskId);  //получение задачи по ее id из листа
+            Task taskDelete = _tasks.First(it => it.id == taskId);  //получение задачи по ее id из листа
             if (taskDelete != null)
             {
                 _tasks.Remove(taskDelete);  //удаление задачи
@@ -56,18 +57,23 @@ namespace Lib
             return _tasks.First(it => it.id == idTask);
         }
 
-        //метод, проверяющий, что список всех задач равен переданному
-        public bool GetAllTask(List<Task> myList)
+        //метод, возвращающий список всех задач
+        public List<Task> GetAllTask()
+        {      
+            return _tasks.ToList(); 
+        }
+
+        //метод, сравнивающий два переданных листа с задачами
+        public bool СomparisonLists(List<Task> exp, List<Task> act)
         {
-            int countTaskMyList = myList.Count;  //кол-во задач в переданном листе
-            if (countTaskMyList == _tasks.Count)  //если кол-во задач в листах совпадает сравниваем их
+            if (exp.Count == act.Count)  //если кол-во задач в листах совпадает сравниваем их
             {
                 int i = 0;
                 bool flag = false;
-                // сравнение каждой задачи из переданного листа с задачами из листа _tasks
-                foreach (Task task in _tasks)
+                // сравнение каждой задачи из листа act с задачами из листа exp
+                foreach (Task task in act)
                 {
-                    if (myList[i] == _tasks[i])
+                    if (task == exp[i])
                     {
                         i++;
                         flag = true;  //задачи совпадают
@@ -78,47 +84,31 @@ namespace Lib
                         break;
                     }
                 }
-                return flag;  //списки равны
+                return flag;
             }
             return false; //списки не равны
         }
 
-        //метод, возвращающий кол-во задач с указанным статусом
-        public int GetTaskStatus(Status status)
+        //метод, возвращающий список задач по статусу
+        public IEnumerable<Task> GetTasksStatus(Status status)
         {
-            int count = 0;  //кол-во найденных задач
-            foreach (Task task in _tasks)
-            {
-                if(task.status == status)
-                {
-                    count++;
-                }
-            }
-            return count;
+            return _tasks.Where(t => t.status == status);
         }
 
-        //метод, возвращающий кол-во задач с указанным приоритетом
-        public int GetTaskPriority(Priority priority)
+        //метод, возвращающий список задач по приоритету
+        public IEnumerable<Task> GetTasksPriority(Priority priority)
         {
-            int count = 0;  //кол-во найденных задач
-            foreach (Task task in _tasks)
-            {
-                if (task.priority == priority)
-                {
-                    count++;
-                }
-            }
-            return count;
+            return _tasks.Where(t => t.priority == priority);
         }
 
-        //метод, возвращающий кол-во задач в листе
+        //метод, возвращающий кол-во всех задач в листе
         public int GetTaskCount()
         {
             return _tasks.Count;
         }
 
-        //метод, возвращающий кол-во задач, созданных указанным пользователем
-        public int GetTaskыUser(int idUser, string nameUser)
+        //метод, возвращающий кол-во задач по пользователю
+        public int GetTasksUser(int idUser, string nameUser)
         {
             int count = 0;  //кол-во найденных задач
             foreach (Task task in _tasks)
