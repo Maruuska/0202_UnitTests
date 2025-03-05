@@ -10,6 +10,7 @@ namespace Lib.Tests
         //объект класса Dll для доступа к методам
         private Dll _dll = new Dll();
 
+        // Тест для проверки, что новая задача создается
         [TestMethod]
         public void CreateTask_CreateNewTask()
         {
@@ -24,6 +25,7 @@ namespace Lib.Tests
             Assert.AreEqual(task1, actualTask);   //сравнение созданной задачи с возвращенной из метода
         }
 
+        // Тест для проверки, что задача с указанным id удаляется
         [TestMethod]
         public void DeleteTask_DeleteOldTask()
         {
@@ -39,6 +41,7 @@ namespace Lib.Tests
             Assert.IsNull(actualTask);
         }
 
+        // Тест для проверки, что старая задача обновляется новыми данными
         [TestMethod]
         public void UpdateTask_UpdateOldTask()
         {
@@ -55,13 +58,13 @@ namespace Lib.Tests
             Assert.AreEqual(true, vozvrat);
         }
 
-
+        // Тест для проверки, что по переданному id возвращается нужная задача 
         [TestMethod]
         public void GetTaskId_ReturnTask()
         {
             // Arrange
             Task task4 = new Task(4, "решить задачи", DateTime.Now, Priority.High, Status.Open, new User(2, "Inna"));   //объект класса
-            Task r = _dll.CreateTask(task4);
+            Task create = _dll.CreateTask(task4);
 
             // Act
             Task actualTask = _dll.GetTaskById(4);  //получение задачи по ее id
@@ -70,22 +73,35 @@ namespace Lib.Tests
             Assert.AreEqual(task4, actualTask);
         }
 
-
+        // Тест для проверки, что создается лист с нужными задачами
         [TestMethod]
         public void GetAllTasks_ReturnAllTask()
         {
             // Arrange
-            //создание двух задач в листе
-            Task task = new Task(1, "нарисовать картинку", DateTime.Now, Priority.Low, Status.Progress, new User(3, "Jon"));   //объект класса
-            Task task2 = new Task(1, "купить чипсики", DateTime.Now, Priority.High, Status.Open, new User(3, "Jon"));   //объект класса
+            //ожидаемый лист задач
+            List<Task> expectedListTasks = new List<Task>
+            {
+                new Task(1, "нарисовать картинку", DateTime.Now, Priority.Low, Status.Progress, new User(3, "Jon")),
+                new Task(2, "купить чипсики", DateTime.Now, Priority.High, Status.Open, new User(3, "Jon"))
+            };
 
             // Act
-            _dll.CreateTask(task);
-            _dll.CreateTask(task2);
-            List<Task> list = _dll.GetAllTask();
+            //создание в классе DLL задач в листе 
+            _dll.CreateTask(expectedListTasks[0]);
+            _dll.CreateTask(expectedListTasks[1]);
 
             // Assert
-            Assert.AreEqual(2, list.Count);
+            //Сравнение нашего листа задач с листом в DLL
+            bool r = _dll.GetAllTask(expectedListTasks);
+
+            Assert.AreEqual(true, r);
+
+
+
+
+
+
+
         }
 
         [TestMethod]
@@ -162,7 +178,7 @@ namespace Lib.Tests
             _dll.CreateTask(task2);
             _dll.CreateTask(task3);
             _dll.CreateTask(task4);
-            int countTasks = _dll.GetTaskUsers(3,"Jon");
+            int countTasks = _dll.GetTaskыUser(3, "Jon");
 
             // Assert
             Assert.AreEqual(2, countTasks);

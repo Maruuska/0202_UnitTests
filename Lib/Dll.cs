@@ -3,13 +3,13 @@ using System.Threading.Tasks;
 
 namespace Lib
 {
-    //класс, содержащий методы работы с задачами
+    //класс Dll, содержит методы работы с задачами
     public class Dll
     {
         //создание листа для задач
         private List<Task> _tasks = new List<Task>();
 
-        //метод, создающий задачу
+        //метод, создающий новую задачу
         public Task CreateTask(Task newTask)
         {
             _tasks.Add(newTask);
@@ -22,7 +22,7 @@ namespace Lib
             Task taskDelete = _tasks.FirstOrDefault(it => it.id == taskId);  //получение задачи по ее id из листа
             if (taskDelete != null)
             {
-                _tasks.Remove(taskDelete);
+                _tasks.Remove(taskDelete);  //удаление задачи
             }
         }
 
@@ -45,23 +45,43 @@ namespace Lib
             return false;
         }
 
-
         //метод, возвращающий задачу по ее id
         public Task GetTaskById(int idTask)
         {
-            return _tasks.FirstOrDefault(it => it.id == idTask);
+            return _tasks.First(it => it.id == idTask);
         }
 
-        //Получение списка всех задач
-        public List<Task> GetAllTask()
+        //метод, возвращающий список всех задач
+        public bool GetAllTask(List<Task> myList)
         {
-            return _tasks.ToList();
+            int countTaskMyLict = myList.Count;  //кол-во задач в переданном листе
+            if (countTaskMyLict == _tasks.Count)  //если кол-во задач в листах совпадает сравниваем их
+            {
+                int i = 0;
+                bool flag = false;
+                // сравнение каждой задачи из переданного листа с задачами из листа _tasks
+                foreach (Task task in _tasks)
+                {
+                    if (myList[i] == _tasks[i])
+                    {
+                        i++;
+                        flag = true;
+                    }
+                    else
+                    {
+                        flag = false;
+                        break;
+                    }
+                }
+                return flag;
+            }
+            return false;
         }
 
-        //Получение задач по статусу
+        //метод, возвращающий кол-во задач с указанным статусом
         public int GetTaskStatus(Status status)
         {
-            int count = 0;
+            int count = 0;  //кол-во найденных задач
             foreach (Task task in _tasks)
             {
                 if(task.status == status)
@@ -72,10 +92,10 @@ namespace Lib
             return count;
         }
 
-        //Получение задач по приоритету
+        //метод, возвращающий кол-во задач с указанным приоритетом
         public int GetTaskPriority(Priority priority)
         {
-            int count = 0;
+            int count = 0;  //кол-во найденных задач
             foreach (Task task in _tasks)
             {
                 if (task.priority == priority)
@@ -86,16 +106,16 @@ namespace Lib
             return count;
         }
 
-        //Получение количества задач
+        //метод, возвращающий кол-во задач в листе
         public int GetTaskCount()
         {
             return _tasks.Count;
         }
 
-        //Получение задач по пользователю
-        public int GetTaskUsers(int idUser, string nameUser)
+        //метод, возвращающий кол-во задач, созданных указанным пользователем
+        public int GetTaskыUser(int idUser, string nameUser)
         {
-            int count = 0;
+            int count = 0;  //кол-во найденных задач
             foreach (Task task in _tasks)
             {
                 if (task.user.id == idUser && task.user.name == nameUser)
@@ -106,10 +126,10 @@ namespace Lib
             return count;
         }
 
-        //Получение задач по дате создания
+        //метод, возвращающий кол-во задач по дате создания
         public int GetTaskDate(DateTime date)
         {
-            int count = 0;
+            int count = 0;  //кол-во найденных задач
             foreach (Task task in _tasks)
             {
                 if (task.creatDate == date)

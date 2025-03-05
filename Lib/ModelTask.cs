@@ -9,14 +9,15 @@ namespace Lib
     //класс, описывающий модель задачи
     public class Task
     {
-        public int id;
-        public string name;
-        public DateTime creatDate;
-        public Priority priority;
-        public Status status;
-        public User user;
+        public int id;   //номер задачи
+        public string name;  //название задачи
+        public DateTime creatDate;  //дата создания задачи
+        public Priority priority;   //приоритетность задачи
+        public Status status;       //статус задачи
+        public User user;           //создатель задачи
 
-        public Task(int id, string name, DateTime creatDate, Priority priority, Status status, User user)   //конструктор
+        //конструктор класса Task, создающий задачу
+        public Task(int id, string name, DateTime creatDate, Priority priority, Status status, User user)   
         {
             this.id = id;
             this.name = name;
@@ -44,10 +45,11 @@ namespace Lib
     //класс, описывающий пользователя, создавшего задачу
     public class User
     {
-        public int id;
-        public string name;
+        public int id;    //id пользователя, создающего задачу
+        public string name;    //имя пользователя
 
-        public User(int id, string name)  //конструктор
+        //конструктор класса User, создающий нового поьзователя
+        public User(int id, string name)  
         {
             this.id = id;
             this.name = name;
