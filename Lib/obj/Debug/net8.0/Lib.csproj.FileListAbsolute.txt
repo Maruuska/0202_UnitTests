@@ -31,3 +31,4 @@ D:\Dunaeva 0202 utest\1 prog\0202\Lib\obj\Debug\net8.0\Lib.dll
 D:\Dunaeva 0202 utest\1 prog\0202\Lib\obj\Debug\net8.0\refint\Lib.dll
 D:\Dunaeva 0202 utest\1 prog\0202\Lib\obj\Debug\net8.0\Lib.pdb
 D:\Dunaeva 0202 utest\1 prog\0202\Lib\obj\Debug\net8.0\ref\Lib.dll
+C:\Users\Юзер\Desktop\Lib\Lib\obj\Debug\net8.0\Lib.sourcelink.json

@@ -517,3 +517,4 @@ D:\Dunaeva 0202 utest\1 prog\0202\Lib.Testss\obj\Debug\net8.0\refint\Lib.Tests.d
 D:\Dunaeva 0202 utest\1 prog\0202\Lib.Testss\obj\Debug\net8.0\Lib.Tests.pdb
 D:\Dunaeva 0202 utest\1 prog\0202\Lib.Testss\obj\Debug\net8.0\Lib.Tests.genruntimeconfig.cache
 D:\Dunaeva 0202 utest\1 prog\0202\Lib.Testss\obj\Debug\net8.0\ref\Lib.Tests.dll
+C:\Users\Юзер\Desktop\Lib\Lib.Testss\obj\Debug\net8.0\Lib.Tests.sourcelink.json

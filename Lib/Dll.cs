@@ -17,12 +17,17 @@ namespace Lib
         }
 
         //метод, удаляющий задачу по ее id
-        public void DeleteTask(int taskId)
+        public bool DeleteTask(int taskId)
         {
             Task taskDelete = _tasks.FirstOrDefault(it => it.id == taskId);  //получение задачи по ее id из листа
             if (taskDelete != null)
             {
                 _tasks.Remove(taskDelete);  //удаление задачи
+                return true;  //задача удалена
+            }
+            else
+            {
+                return false;  //задача не удалена 
             }
         }
 
@@ -40,7 +45,7 @@ namespace Lib
             //проверка равенства задач
             if(oldTask.id == updTask.id && oldTask.name == updTask.name && oldTask.creatDate == updTask.creatDate && oldTask.priority == updTask.priority && oldTask.status == updTask.status && oldTask.user == updTask.user )
             {
-                return true;
+                return true;  //задача обновлена
             }                 
             return false;
         }
@@ -51,11 +56,11 @@ namespace Lib
             return _tasks.First(it => it.id == idTask);
         }
 
-        //метод, возвращающий список всех задач
+        //метод, проверяющий, что список всех задач равен переданному
         public bool GetAllTask(List<Task> myList)
         {
-            int countTaskMyLict = myList.Count;  //кол-во задач в переданном листе
-            if (countTaskMyLict == _tasks.Count)  //если кол-во задач в листах совпадает сравниваем их
+            int countTaskMyList = myList.Count;  //кол-во задач в переданном листе
+            if (countTaskMyList == _tasks.Count)  //если кол-во задач в листах совпадает сравниваем их
             {
                 int i = 0;
                 bool flag = false;
@@ -65,17 +70,17 @@ namespace Lib
                     if (myList[i] == _tasks[i])
                     {
                         i++;
-                        flag = true;
+                        flag = true;  //задачи совпадают
                     }
                     else
                     {
-                        flag = false;
+                        flag = false;  //задачи не совпадают
                         break;
                     }
                 }
-                return flag;
+                return flag;  //списки равны
             }
-            return false;
+            return false; //списки не равны
         }
 
         //метод, возвращающий кол-во задач с указанным статусом

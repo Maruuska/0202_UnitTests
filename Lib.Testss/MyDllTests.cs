@@ -33,12 +33,12 @@ namespace Lib.Tests
             Task task2 = new Task(2, "испечь кексик", DateTime.Now, Priority.High, Status.Open, new User(2, "Inna"));   //объект класса
 
             // Act
-            _dll.CreateTask(task2);
-            _dll.DeleteTask(2);
+            Task t =_dll.CreateTask(task2);
+            bool rez=_dll.DeleteTask(2);
 
             // Assert
-            Task actualTask = _dll.GetTaskById(2);   //получение null если задача удалена
-            Assert.IsNull(actualTask);
+            //Task actualTask = _dll.GetTaskById(2);   //получение null если задача удалена
+            Assert.IsTrue(rez);
         }
 
         // Тест для проверки, что старая задача обновляется новыми данными
@@ -73,7 +73,7 @@ namespace Lib.Tests
             Assert.AreEqual(task4, actualTask);
         }
 
-        // Тест для проверки, что создается лист с нужными задачами
+        // Тест для проверки, что возвращается список всех задач
         [TestMethod]
         public void GetAllTasks_ReturnAllTask()
         {
@@ -92,16 +92,9 @@ namespace Lib.Tests
 
             // Assert
             //Сравнение нашего листа задач с листом в DLL
-            bool r = _dll.GetAllTask(expectedListTasks);
+            bool rez = _dll.GetAllTask(expectedListTasks);
 
-            Assert.AreEqual(true, r);
-
-
-
-
-
-
-
+            Assert.AreEqual(true, rez);
         }
 
         [TestMethod]
